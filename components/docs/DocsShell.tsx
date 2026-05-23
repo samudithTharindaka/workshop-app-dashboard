@@ -29,8 +29,8 @@ export function DocsShell({ allDocs, doc, headings, prev, next }: Props) {
         className="pointer-events-none absolute inset-0 -z-10 bg-grid-light bg-[size:44px_44px] [mask-image:radial-gradient(ellipse_at_top,black_0%,transparent_55%)] dark:bg-grid-dark"
       />
 
-      <div className="container-px mx-auto max-w-7xl pb-20 pt-8 md:pt-12">
-        <div className="grid gap-10 lg:grid-cols-[260px_1fr] xl:grid-cols-[260px_1fr_220px] xl:gap-12">
+      <div className="mx-auto w-full px-5 pb-20 pt-8 md:px-8 md:pt-12 lg:px-10 2xl:px-16">
+        <div className="grid gap-10 lg:grid-cols-[260px_minmax(0,1fr)] xl:grid-cols-[280px_minmax(0,1fr)_240px] xl:gap-14 2xl:gap-20">
           <DocsSidebar
             allDocs={allDocs}
             activeCategory={doc.category}

@@ -40,7 +40,7 @@ export function DocsHeader() {
           : "border-transparent bg-white dark:bg-brand-950"
       }`}
     >
-      <div className="container-px mx-auto flex max-w-7xl items-center justify-between gap-3 py-3">
+      <div className="mx-auto flex w-full items-center justify-between gap-3 px-5 py-3 md:px-8 lg:px-10 2xl:px-16">
         {/* Back button — prominent on the left */}
         <Link
           href="/"
