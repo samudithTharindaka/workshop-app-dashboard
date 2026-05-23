@@ -1,15 +1,20 @@
+import Link from "next/link";
 import { Logo } from "./Logo";
 import { IconGithub } from "./Icons";
 
 const productLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#how-it-works", label: "How it works" },
-  { href: "#screenshots", label: "Screens" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#features", label: "Features" },
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#screenshots", label: "Screens" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 const resourceLinks = [
-  { href: "https://github.com/samudithTharindaka/workshop_mgmt", label: "GitHub" },
+  { href: "/docs", label: "Documentation", internal: true },
+  {
+    href: "https://github.com/samudithTharindaka/workshop_mgmt",
+    label: "GitHub",
+  },
   { href: "https://frappe.io", label: "Frappe" },
   { href: "https://erpnext.com", label: "ERPNext" },
 ];
@@ -51,12 +56,12 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {productLinks.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
                     className="cursor-pointer text-sm text-slate-700 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-200"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -67,18 +72,29 @@ export function Footer() {
               Resources
             </div>
             <ul className="mt-4 space-y-2.5">
-              {resourceLinks.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cursor-pointer text-sm text-slate-700 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-200"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
+              {resourceLinks.map((l) =>
+                "internal" in l && l.internal ? (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      className="cursor-pointer text-sm text-slate-700 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-200"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="cursor-pointer text-sm text-slate-700 transition-colors hover:text-brand-700 dark:text-slate-300 dark:hover:text-brand-200"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
         </div>

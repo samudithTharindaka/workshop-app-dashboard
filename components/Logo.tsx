@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <a
-      href="#top"
+    <Link
+      href="/"
       className={`cursor-pointer inline-flex items-center gap-2.5 ${className}`}
       aria-label="Workshop Management home"
     >
@@ -16,6 +18,6 @@ export function Logo({ className = "" }: { className?: string }) {
           Management
         </span>
       </span>
-    </a>
+    </Link>
   );
 }
